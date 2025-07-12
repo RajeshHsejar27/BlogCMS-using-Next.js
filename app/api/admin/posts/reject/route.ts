@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     await connectToDatabase();
     
     // Find the post
-    const post = await Post.findById(postId).populate('author', 'name email');
+    const post = await Post.findById(postId).populate<{ author: { name: string; email: string } }>('author', 'name email');
     if (!post) {
       return NextResponse.json(
         { message: 'Post not found' },
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
     // Send rejection email
     try {
       await sendRejectionEmail(
-        post.author.email,
+        (post.author as { email: string }).email,
         post.title,
         reason
       );
