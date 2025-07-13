@@ -5,10 +5,10 @@ import Hero from '@/components/Hero';
 import PostGridSkeleton from '@/components/PostGridSkeleton';
 
 export const metadata: Metadata = {
-  title: 'Forest Blog - Natural Stories & Insights',
-  description: 'Discover amazing stories from nature and life. Join our community of writers and readers sharing their experiences.',
+  title: "The Venture Blog - People's Stories",
+  description: 'Discover amazing stories from people we live around with. Join our community of writers and readers sharing their experiences.',
   openGraph: {
-    title: 'Forest Blog - Natural Stories & Insights',
+    title: 'Venture Blog - Stories & Insights',
     description: 'Discover amazing stories from nature and life.',
     url: '/',
   },
@@ -29,7 +29,7 @@ export default function Home() {
               Latest Stories
             </h2>
             <p className="text-lg text-amber-700 max-w-2xl mx-auto">
-              Discover amazing stories from our community of nature lovers and writers
+              Discover amazing stories from people we live around with. Join our community of writers and readers sharing their experiences.
             </p>
           </div>
           

@@ -116,7 +116,7 @@ export default function ProfilePage() {
           <CardHeader className="text-center pb-8">
             <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
               <Image
-                src={session.user?.image || 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150'}
+                src={session.user?.image || '/images/user.png'}
                 alt={session.user?.name || 'Profile'}
                 fill
                 className="object-cover"
@@ -200,7 +200,7 @@ export default function ProfilePage() {
                       {/* Cover Image */}
                       <div className="relative w-full md:w-48 h-32 rounded-lg overflow-hidden flex-shrink-0">
                         <Image
-                          src={post.coverImage || 'https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&w=400'}
+                          src={post.coverImage}
                           alt={post.title}
                           fill
                           className="object-cover"

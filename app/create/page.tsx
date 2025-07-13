@@ -109,7 +109,7 @@ export default function CreatePage() {
               </CardTitle>
             </div>
             <CardDescription className="text-lg text-amber-700">
-              Share your story with the Forest Blog community
+              Share your story with The Venture Blog community
             </CardDescription>
           </CardHeader>
           
@@ -147,16 +147,20 @@ export default function CreatePage() {
               </div>
               
               {/* Content */}
-              <div className="space-y-2">
+                <div className="space-y-2">
                 <Label htmlFor="content" className="text-amber-900 font-medium">
                   Content
                 </Label>
-                <Textarea
+                <div className="relative">
+                  <Textarea
                   id="content"
                   {...register('content')}
                   placeholder="Write your post content here... (Markdown supported)"
-                  className="min-h-96 border-amber-200 focus:border-amber-500 focus:ring-amber-500"
-                />
+                  className="h-96 md:h-[32rem] border-amber-200 focus:border-amber-500 focus:ring-amber-500 resize-none overflow-y-auto"
+                  style={{ minHeight: '24rem', maxHeight: '40rem' }}
+                  />
+                  {/* Optionally, you can add a custom scrollbar style here */}
+                </div>
                 {errors.content && (
                   <p className="text-red-500 text-sm">{errors.content.message}</p>
                 )}
@@ -164,7 +168,7 @@ export default function CreatePage() {
                   <span>{watchContent.split(' ').length} words</span>
                   <span>~{readingTime} min read</span>
                 </div>
-              </div>
+                </div>
               
               {/* Tags */}
               <div className="space-y-2">

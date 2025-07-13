@@ -47,15 +47,15 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   }
   
   return {
-    title: `${post.title} | Forest Blog`,
-    description: post.excerpt || post.content.substring(0, 2000) + '...',
+    title: `${post.title} | The Venture Blog`,
+    description: post.excerpt || post.content.substring(0, 50000) + '...',
     openGraph: {
       title: post.title,
-      description: post.excerpt || post.content.substring(0, 2000) + '...',
+      description: post.excerpt || post.content.substring(0, 50000) + '...',
       url: `/posts/${post.slug}`,
       images: [
         {
-          url: post.coverImage || 'https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&w=1200',
+          url: post.coverImage,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -112,7 +112,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 <div className="flex items-center gap-3">
                   <div className="relative w-10 h-10 rounded-full overflow-hidden">
                     <Image
-                      src={post.author.image || 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150'}
+                      src={post.author.image || '/images/user.png'}
                       alt={post.author.name}
                       fill
                       className="object-cover"

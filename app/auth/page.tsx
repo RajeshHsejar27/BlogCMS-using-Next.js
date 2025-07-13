@@ -62,7 +62,7 @@ export default function AuthPage() {
           <div className="flex items-center justify-center mb-6">
             <TreePine className="w-12 h-12 text-green-600 mr-3" />
             <CardTitle className="text-3xl font-bold text-amber-900">
-              Forest Blog
+              The Venture Blog
             </CardTitle>
           </div>
           <CardDescription className="text-lg text-amber-700">
@@ -76,7 +76,7 @@ export default function AuthPage() {
             <div className="text-center space-y-6">
               <div className="relative w-20 h-20 mx-auto rounded-full overflow-hidden">
                 <Image
-                  src={session.user?.image || 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150'}
+                  src={session.user?.image || '/images/user.png'}
                   alt={session.user?.name || 'Profile'}
                   fill
                   className="object-cover"
@@ -104,8 +104,7 @@ export default function AuthPage() {
                 
                 <Button
                   onClick={handleSignOut}
-                  variant="outline"
-                  className="w-full border-amber-300 text-amber-700 hover:bg-amber-50"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white"
                 >
                   <LogOut className="w-5 h-5 mr-2" />
                   Sign Out
@@ -121,7 +120,7 @@ export default function AuthPage() {
                   Join Our Community
                 </h3>
                 <p className="text-amber-700">
-                  Share your stories, connect with nature lovers, and discover amazing content
+                  Share your stories, connect with people and discover amazing content
                 </p>
               </div>
               

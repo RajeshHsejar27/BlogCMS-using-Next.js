@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { 
   Shield, 
   CheckCircle, 
@@ -23,6 +24,8 @@ import {
 import { toast } from 'sonner';
 import Image from 'next/image';
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface PendingPost {
   _id: string;
@@ -42,6 +45,116 @@ interface PendingPost {
   readingTime: number;
   createdAt: string;
   slug: string;
+  tags?: string[];
+}
+
+/**
+ * Post preview modal component
+ */
+function PostPreviewModal({ post }: { post: PendingPost }) {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button
+          variant="outline"
+          className="border-amber-300 text-amber-700 hover:bg-amber-50"
+        >
+          <Eye className="w-4 h-4 mr-2" />
+          Preview
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-bold text-amber-900">
+            Post Preview
+          </DialogTitle>
+        </DialogHeader>
+        
+        <div className="space-y-6">
+          {/* Cover Image */}
+          <div className="relative w-full h-64 rounded-lg overflow-hidden">
+            <Image
+              src={post.coverImage || 'https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&w=800'}
+              alt={post.title}
+              fill
+              className="object-cover"
+            />
+          </div>
+          
+          {/* Post Header */}
+          <div>
+            <h1 className="text-3xl font-bold text-amber-900 mb-4">
+              {post.title}
+            </h1>
+            
+            {/* Author and meta info */}
+            <div className="flex flex-wrap items-center gap-4 text-amber-700 mb-4">
+              <div className="flex items-center gap-2">
+                <div className="relative w-8 h-8 rounded-full overflow-hidden">
+                  <Image
+                    src={post.author.image || '/images/user.png'}
+                    alt={post.author.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <span className="font-medium">{post.author.name}</span>
+              </div>
+              
+              <div className="flex items-center gap-1">
+                <Clock className="w-4 h-4" />
+                <span>{post.readingTime} min read</span>
+              </div>
+              
+              <div className="flex items-center gap-1">
+                <Heart className="w-4 h-4" />
+                <span>{post.hearts} hearts</span>
+              </div>
+              
+              <div className="flex items-center gap-1">
+                <MessageCircle className="w-4 h-4" />
+                <span>{post.comments?.length || 0} comments</span>
+              </div>
+            </div>
+            
+            {/* Tags */}
+            {post.tags && post.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-4">
+                {post.tags.map((tag: string) => (
+                  <span
+                    key={tag}
+                    className="bg-amber-100 text-amber-800 px-2 py-1 rounded-full text-sm"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+          
+          {/* Post Content */}
+          <div className="prose prose-lg max-w-none prose-headings:text-amber-900 prose-a:text-green-700 prose-blockquote:border-l-amber-500 prose-blockquote:text-amber-800">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                img: ({ node, ...props }) => (
+                  <Image
+                    src={props.src || ''}
+                    alt={props.alt || ''}
+                    width={600}
+                    height={300}
+                    className="rounded-lg shadow-md"
+                  />
+                ),
+              }}
+            >
+              {post.content}
+            </ReactMarkdown>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
 }
 
 /**
@@ -260,7 +373,7 @@ export default function AdminPage() {
                         <div className="flex items-center gap-3 mb-4">
                           <div className="relative w-8 h-8 rounded-full overflow-hidden">
                             <Image
-                              src={post.author.image || 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150'}
+                              src={post.author.image || '/images/user.png'}
                               alt={post.author.name}
                               fill
                               className="object-cover"
@@ -315,13 +428,7 @@ export default function AdminPage() {
                             Reject
                           </Button>
                           
-                          <Button
-                            variant="outline"
-                            className="border-amber-300 text-amber-700 hover:bg-amber-50"
-                          >
-                            <Eye className="w-4 h-4 mr-2" />
-                            Preview
-                          </Button>
+                          <PostPreviewModal post={post} />
                           
                           <Button
                             onClick={() => handleDelete(post._id)}

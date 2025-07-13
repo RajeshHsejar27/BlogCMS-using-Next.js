@@ -18,7 +18,7 @@ export function calculateReadingTime(content: string): number {
  * @param maxLength - Maximum length of excerpt
  * @returns Excerpt string
  */
-export function generateExcerpt(content: string, maxLength: number = 2000): string {
+export function generateExcerpt(content: string, maxLength: number = 50000): string {
   // Remove markdown syntax and get plain text
   const plainText = content
     .replace(/!\[.*?\]\(.*?\)/g, '') // Remove images

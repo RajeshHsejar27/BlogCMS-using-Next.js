@@ -10,33 +10,19 @@ import { Toaster } from '@/components/ui/sonner';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Forest Blog - Natural Stories & Insights',
+  title: 'The Venture Blog - Natural Stories & Insights',
   description: 'A beautiful blog platform for sharing stories from nature and life. Join our community of writers and readers.',
-  keywords: ['blog', 'nature', 'stories', 'forest', 'writing', 'community'],
-  authors: [{ name: 'Forest Blog Team' }],
-  creator: 'Forest Blog',
-  publisher: 'Forest Blog',
+  keywords: ['blog', 'nature', 'stories', 'venture', 'writing', 'community'],
+  authors: [{ name: 'The Venture Blog Team' }],
+  creator: 'Rajesh',
+  publisher: 'Rajesh',
   openGraph: {
-    title: 'Forest Blog - Natural Stories & Insights',
+    title: 'The Venture Blog - Stories & Insights',
     description: 'A beautiful blog platform for sharing stories from nature and life.',
     url: process.env.NEXTAUTH_URL,
-    siteName: 'Forest Blog',
-    images: [
-      {
-        url: 'https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        width: 1200,
-        height: 630,
-        alt: 'Forest Blog',
-      },
-    ],
+    siteName: 'The Venture Blog',
     locale: 'en_US',
     type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Forest Blog - Natural Stories & Insights',
-    description: 'A beautiful blog platform for sharing stories from nature and life.',
-    images: ['https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&w=1200'],
   },
   robots: {
     index: true,
@@ -75,9 +61,9 @@ export default async function RootLayout({
             </main>
             <footer className="bg-amber-900 text-amber-100 py-8 mt-12">
               <div className="container mx-auto px-4 text-center">
-                <p>&copy; 2024 Forest Blog. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} The Venture Blog. All rights reserved.</p>
                 <p className="mt-2 text-sm text-amber-200">
-                  Connecting nature lovers through stories
+                  Connecting everyone through stories
                 </p>
               </div>
             </footer>

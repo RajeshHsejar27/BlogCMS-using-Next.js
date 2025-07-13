@@ -85,7 +85,7 @@ export default async function PostGrid() {
             <div className="flex items-center gap-3 mb-4">
               <div className="relative w-8 h-8 rounded-full overflow-hidden">
                 <Image
-                  src={post.author.image || 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150'}
+                  src={post.author.image || '/images/user.png'}
                   alt={post.author.name}
                   fill
                   className="object-cover"
