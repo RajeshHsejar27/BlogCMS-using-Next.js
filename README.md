@@ -1,6 +1,6 @@
-# Forest Blog CMS
+# The Venture Blog
 
-A beautiful, production-ready blog CMS built with Next.js 14, featuring a forest-themed design that connects nature lovers through storytelling.
+A beautiful, production-ready blog CMS built with Next.js 14, featuring a forest-themed design that connects people through storytelling.
 
 ## 🌲 Features
 
@@ -152,6 +152,9 @@ forest-blog/
 │   ├── auth.ts            # NextAuth configuration
 │   ├── mongodb.ts         # Database connection
 │   └── utils.ts           # General utilities
+├── public/                # Static asset dir
+│   ├── images/            # Images folder
+│   │   ├── user.png       # Default user image
 ├── .env.local.example     # Environment variables template
 ├── next.config.js         # Next.js configuration
 ├── tailwind.config.ts     # Tailwind CSS configuration
