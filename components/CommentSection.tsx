@@ -168,7 +168,7 @@ export default function CommentSection({ postId, comments: initialComments }: Co
               <div key={comment._id} className="flex items-start gap-4 p-4 bg-amber-50 rounded-lg">
                 <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                   <Image
-                    src={comment.author.image || 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150'}
+                    src={comment.author.image || '/images/user.png'}
                     alt={comment.author.name}
                     fill
                     className="object-cover"

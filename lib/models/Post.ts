@@ -51,7 +51,7 @@ const PostSchema = new Schema<IPost>({
   },
   excerpt: {
     type: String,
-    maxlength: 2000,
+    maxlength: 50000,
   },
   coverImage: {
     type: String,

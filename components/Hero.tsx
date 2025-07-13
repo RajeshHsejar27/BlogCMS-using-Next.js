@@ -22,12 +22,12 @@ export default function Hero() {
           <div className="flex items-center justify-center mb-6">
             <TreePine className="w-16 h-16 text-green-600 mr-4" />
             <h1 className="text-5xl md:text-7xl font-bold text-amber-900">
-              Forest Blog
+              The Venture Blog
             </h1>
           </div>
           
           <p className="text-xl md:text-2xl text-amber-700 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Where stories grow like ancient trees, connecting hearts through the beauty of nature and life
+            Where stories grow like ancient trees, connecting hearts through the peoples' experiences and adventures.
           </p>
           
           {/* Feature highlights */}
@@ -44,7 +44,7 @@ export default function Hero() {
               <Users className="w-8 h-8 text-green-600 mx-auto mb-3" />
               <h3 className="text-lg font-semibold text-amber-900 mb-2">Join Community</h3>
               <p className="text-amber-700 text-sm">
-                Connect with fellow nature lovers, writers, and explorers from around the world
+                Connect with fellow writers, and explorers from around the world
               </p>
             </div>
             

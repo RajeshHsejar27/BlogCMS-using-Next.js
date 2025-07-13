@@ -56,7 +56,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
             <TreePine className="w-8 h-8 text-amber-100" />
-            <span className="text-xl font-bold text-amber-100">Forest Blog</span>
+            <span className="text-xl font-bold text-amber-100">The Venture Blog</span>
           </Link>
           
           {/* Desktop Navigation */}
@@ -113,7 +113,7 @@ export default function Navbar() {
                 >
                   <div className="relative w-6 h-6 rounded-full overflow-hidden">
                     <Image
-                      src={session.user?.image || 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150'}
+                      src={session.user?.image || '/images/user.png'}
                       alt={session.user?.name || 'Profile'}
                       fill
                       className="object-cover"
@@ -124,9 +124,9 @@ export default function Navbar() {
                 
                 <Button
                   onClick={handleSignOut}
-                  variant="outline"
+                  variant="default"
                   size="sm"
-                  className="border-amber-300 text-amber-100 hover:bg-amber-700 hover:text-white"
+                  className="bg-green-800 hover:bg-green-900 text-white border-none"
                 >
                   <LogOut className="w-4 h-4 mr-1" />
                   Sign Out
@@ -135,9 +135,9 @@ export default function Navbar() {
             ) : (
               <Link href="/auth">
                 <Button
-                  variant="outline"
+                  variant="default"
                   size="sm"
-                  className="border-amber-300 text-amber-100 hover:bg-amber-700 hover:text-white"
+                  className="bg-green-800 hover:bg-green-900 text-white border-none"
                 >
                   <LogIn className="w-4 h-4 mr-1" />
                   Sign In
@@ -235,7 +235,7 @@ export default function Navbar() {
               ) : (
                 <Link
                   href="/auth"
-                  className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`flex bg-green-800 items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive('/auth') 
                       ? 'bg-amber-700 text-white' 
                       : 'text-amber-200 hover:bg-amber-700 hover:text-white'

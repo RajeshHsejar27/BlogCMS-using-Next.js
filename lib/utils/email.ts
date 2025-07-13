@@ -34,7 +34,7 @@ export async function sendRejectionEmail(
         <p>Unfortunately, your post <strong>"${postTitle}"</strong> has been rejected.</p>
         <p><strong>Reason:</strong> ${reason}</p>
         <p>Please review the feedback and feel free to resubmit with improvements.</p>
-        <p>Best regards,<br>The Forest Blog Team</p>
+        <p>Best regards,<br>The Venture Blog Team</p>
       </div>
     `,
   };
@@ -62,7 +62,7 @@ export async function sendApprovalEmail(
         <h2 style="color: #228B22;">Post Approved!</h2>
         <p>Congratulations! Your post <strong>"${postTitle}"</strong> has been approved and is now live.</p>
         <p><a href="${process.env.NEXTAUTH_URL}/posts/${postSlug}" style="color: #228B22;">View your post</a></p>
-        <p>Best regards,<br>The Forest Blog Team</p>
+        <p>Best regards,<br>The Venture Blog Team</p>
       </div>
     `,
   };
